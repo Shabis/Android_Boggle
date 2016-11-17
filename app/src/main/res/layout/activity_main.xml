@@ -33,13 +33,14 @@
         android:id="@+id/submitButton"
         android:layout_below="@+id/editText" />
 
-    <GridLayout
+    <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/gridLayout"
         android:layout_below="@+id/submitButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"></GridLayout>
+        android:layout_alignParentBottom="true"/>
 
 
 </RelativeLayout>

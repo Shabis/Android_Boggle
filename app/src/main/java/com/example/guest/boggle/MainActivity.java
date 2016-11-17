@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.textView) TextView mTextView;
     @Bind(R.id.submitButton) Button mSubmitButton;
     @Bind(R.id.editText) EditText mWordEditText;
+    @Bind(R.id.gridLayout) GridView mWordOutput;
     List<String> guessedWords = new ArrayList();
     private static final String TAG = MainActivity.class.getSimpleName();
     @Override
@@ -51,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String word = mWordEditText.getText().toString();
                 guessedWords.add(word);
+                mWordOutput = (GridView) findViewById(R.id.gridLayout);
+                ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_expandable_list_item_1, guessedWords);
+                mWordOutput.setAdapter(adapter);
             }
         });
     }
